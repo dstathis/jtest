@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=72.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jtest"
+version = "0.0.1"
+
+[project.entry-points.pytest11]
+name_of_plugin = "jtest"
+
+[tool.ruff]
+line-length = 120
