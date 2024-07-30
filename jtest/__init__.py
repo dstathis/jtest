@@ -36,7 +36,7 @@ class JujuStatus:
 
 
 def run(cmd):
-    logging.debug(f"running command: {cmd}")
+    logging.info(f"running command: {cmd}")
     p = subprocess.run(cmd.split(), capture_output=True)
     if p.returncode != 0:
         raise Exception(f"Command failed: {cmd}")
@@ -96,7 +96,7 @@ def wait_for_idle(app_name, status=None, timeout=300, prewait=0, wait_for_units=
     """
     time.sleep(prewait)
     start_time = time.time()
-    logging.debug(f"Starting wait_for_idle at time: {start_time}")
+    logging.info(f"Starting wait_for_idle at time: {start_time}")
     while time.time() < start_time + timeout:
         js = JujuStatus()
         numunits = len(js.unit_objects(app_name))
@@ -116,5 +116,5 @@ def wait_for_idle(app_name, status=None, timeout=300, prewait=0, wait_for_units=
             else:
                 return
         time.sleep(10)
-    logging.debug(f"wait_for_idle timeout at time: {time.time()}")
+    logging.info(f"wait_for_idle timeout at time: {time.time()}")
     raise Exception("Timeout reached waiting for idle.")
