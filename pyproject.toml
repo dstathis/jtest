@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "jtest"
 version = "0.0.1"
+dependencies = ["pytest"]
 
 [project.entry-points.pytest11]
 name_of_plugin = "jtest"
