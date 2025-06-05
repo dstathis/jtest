@@ -22,7 +22,7 @@ class JujuStatus:
     def unit_objects(self, app_name):
         app = self._apps[app_name]
         if "subordinate-to" not in app:
-            return app["units"].values()
+            return app["units"].values() if "units" in app else []
         unit_objects = []
         principals = app["subordinate-to"]
         for principal in principals:
